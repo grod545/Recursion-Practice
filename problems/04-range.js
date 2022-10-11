@@ -20,10 +20,7 @@ function range(start, end) {
     let current = [start]
     start++
     return current.concat(range(start, end))
-  } else if(end < start){
-    arr = []
-    return arr
-  }
+  } 
   return arr;
 }
 range(1, 5); // [1, 2, 3, 4]
