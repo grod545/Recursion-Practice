@@ -10,21 +10,35 @@ iceCreamShop(['pistachio', 'green tea', 'chocolate', 'mint chip'], 'green tea');
 iceCreamShop(['cookies n cream', 'blue moon', 'superman', 'honey lavender', 'sea salt caramel'], 'pistachio'); // false
 iceCreamShop(['moose tracks'], 'moose tracks'); // true
 iceCreamShop([], 'honey lavender'); // false
+
+
+Understand the problem:
+input: an array of flavors and users favorite flavor
+output: a boolean indicating wether the users favorite flavor is in the flavors array
+
+Create a plan:
+1. define a function iceCreamShop that takes in 'flavors' and 'favorite' as parameters
+2. create a base case to work towards
+  *if flavors[0] is equal to favorite flavor return true*
+  -alternatively if flavors.length = 0 we will return false since there are no more flavors to compare to
+3. create our recursive step
+  *use .slice() method to grab the rest of our elements starting at index 1*
+4. return our recursive function witht the arguments of our .slice method and favorite to iterate through the array and compare to favorite flavor
 ***********************************************************************/
-
-
-function iceCreamShop(flavors, favorite) {
-
-  if (flavors.length === 0) {
+function iceCreamShop(flavors, favorite){
+  //base case
+  if (flavors[0] === favorite){
+    return true;
+  }
+  if (flavors.length === 0){
     return false;
   }
+  //recursive case
+  return iceCreamShop(flavors.slice(1), favorite)
 
-  if (flavors[0] === favorite) {
-    return true
-  }
-
- return iceCreamShop(flavors.slice(1), favorite)
 }
+
+
 iceCreamShop(['vanilla', 'strawberry'], 'blue moon'); // false
 iceCreamShop(['pistachio', 'green tea', 'chocolate', 'mint chip'], 'green tea'); // true
 iceCreamShop(['cookies n cream', 'blue moon', 'superman', 'honey lavender', 'sea salt caramel'], 'pistachio'); // false
