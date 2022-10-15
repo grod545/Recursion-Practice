@@ -23,22 +23,20 @@ Create a plan:
   -increment from start moving up by 1 each time
 4. return our current value and add our function to it
 ***********************************************************************/
-function range(start, end){
-// recursive case
-if (start < end){
-  let current = [start]                           //[start] = [1][2][3][4][5]
-  start++                                         //        +1-2,+1-3,+1-4      -we stop at 5 becaue end is not inclusivec
-  return current.concat(range(start, end))        //we can use .concat method because we initialized current as an array and our function returns an array
-  } else {
-    // base case
-    return [];
+const range = (start, end) => {
+  //base case
+  if (end < start) return [];
+  //recursive step: create an empty array and assign start at index 0
+  //if our start parameter is less then our end update our current to our start paremeter
+  //increment from start up until end by 1
+  let current = [start]
+  if ([start] < end){
+    current = [start];
+    [start]++
   }
-
+  // recursive case
+  return current + range(start, end)
 }
-
-range(1, 5); // [1, 2, 3, 4]
-range(3, 4); // [3]
-range(7, 6); // []
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS LINE*****************/
 try {
@@ -46,3 +44,5 @@ try {
 } catch (e) {
   module.exports = null;
 }
+
+

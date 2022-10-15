@@ -23,16 +23,14 @@ create a plan:
   *pass our recursiv step ^ into our function
 4. return our recursive function
 ***********************************************************************/
-function sumToN(n){
-  //base case:
+let sumToN = (n) => {
+  //base case
   if (n <= 0) return null;
-  //recursive case:
-  return sumToN(n-1) + n            //recursive step => (n-1) + n
+  //recursive case: return our original function inputting (n - 1) as our arg
+  // this makes sure we work towards our base case of 0
+  let res = sumToN(n - 1) + n
+  return res;
 }
-sumToN(5) // returns 15
-sumToN(1)  // returns 1
-sumToN(9)  // returns 45
-sumToN(-8)  // returns null
 /**************DO NOT MODIFY ANYTHING UNDER THIS LINE*****************/
 try {
   module.exports = sumToN;
